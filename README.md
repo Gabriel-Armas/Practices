@@ -1,1 +1,1 @@
-# WebPractices
+# Practices
