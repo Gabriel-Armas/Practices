@@ -11,6 +11,14 @@ model = OllamaLLM(model = "llama3.2")
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
-my_message = "Question: What is the capital of France?"
-response = chain.invoke({"question": my_message})
-print(response)
+def handle_conversation():
+    print("Type 'exit' to quit the conversation.")
+    user_input = input("You: ")
+    while user_input.lower() != "exit":
+        response = chain.invoke({"question": user_input})
+        print("Bot:", response)
+        user_input = input("You: ")
+    print("Goodbye!")
+
+if __name__ == "__main__":
+    handle_conversation()
